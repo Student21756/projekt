@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>System Rekomendacji</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>System Rekomendacji Filmów</h1>
+    </header>
+    <div class="container">
+        <form action="/recommend" method="post">
+            <label for="user_id">ID Użytkownika:</label>
+            <input type="number" name="user_id" id="user_id" required min="1">
+
+            <label for="algorithm">Wybierz algorytm:</label>
+            <select name="algorithm" id="algorithm">
+                <option value="matrix_factorization">Matrix Factorization</option>
+                <option value="knn">k-NN</option>
+                <option value="content_based">Content-Based</option>
+            </select>
+
+            <label for="metric">Miara podobieństwa (dla k-NN):</label>
+            <select name="metric" id="metric">
+                <option value="cosine">Kosinusowa</option>
+                <option value="euclidean">Euklidesowa</option>
+                <option value="manhattan">Manhattan</option>
+            </select>
+
+            <label for="num_recommendations">Liczba rekomendacji:</label>
+            <input type="number" name="num_recommendations" id="num_recommendations" value="5" min="1">
+
+            <input type="submit" value="Rekomenduj">
+        </form>
+    </div>
+</body>
+</html>

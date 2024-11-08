@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Twoje Rekomendacje</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Twoje rekomendacje</h1>
+    </header>
+    <div class="container">
+        {% if recommendations %}
+            <ul>
+                {% for item in recommendations %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Brak rekomendacji do wyświetlenia.</p>
+        {% endif %}
+        <a href="/">Powrót</a>
+    </div>
+</body>
+</html>
